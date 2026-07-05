@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+// import TitlePage from "./components/TitlePage.vue";
+// import Portfoilo from "./components/Portfoilo.vue";
+// import About from "./components/About.vue";
+import { RouterLink } from "vue-router";
+
+import data from "./assets/portfolio.js";
+</script>
 
 <template>
   <nav
@@ -21,58 +28,22 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <RouterLink class="nav-link active" aria-current="page" to="/"
+              >Home</RouterLink
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Portfolio</a>
+            <RouterLink class="nav-link" to="/portfolio">Portfolio</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/about">About</RouterLink>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section id="title">
-    <div class="container">
-      <div class="detail row">
-        <figure class="col-md-6">
-          <img src="./assets/images/title.png" alt="" />
-        </figure>
-        <div class="text col-md-6">
-          <h2>Hello,<br />I'm Doolee</h2>
-        </div>
-      </div>
-    </div>
-  </section>
+  <router-view :data="data" />
 </template>
 
-<style scoped lang="scss">
-#title {
-  .container {
-    $navbar_height: 56px; // navbar 높이값
-    height: 100vh;
-    padding: $navbar_height;
-
-    .row {
-      height: 100%;
-      flex-direction: row-reverse;
-    }
-  }
-
-  figure {
-    img {
-      width: 100%;
-    }
-    display: grid;
-    place-items: center;
-  }
-
-  .text {
-    h2 {
-      font-size: 4em;
-    }
-
-    display: grid;
-    place-items: center;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
